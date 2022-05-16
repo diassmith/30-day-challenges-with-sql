@@ -46,4 +46,15 @@
 
 -- COMMAND ----------
 
-
+SELECT  sqlite_Artist.Name as Artista, 
+sqlite_track.Name as Album, 
+Composer as compositor,
+sqlite_genre.Name as Genero, 
+CAST(Bytes/1024 AS INT) as size_mb
+FROM sqlite_track
+LEFT JOIN sqlite_album
+ON sqlite_track.AlbumId = sqlite_album.AlbumId
+LEFT JOIN sqlite_Artist
+ON sqlite_album.ArtistId = sqlite_Artist.ArtistId 
+LEFT JOIN sqlite_genre
+ON sqlite_track.GenreId = sqlite_genre.GenreId 

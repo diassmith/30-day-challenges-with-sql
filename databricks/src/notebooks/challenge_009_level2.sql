@@ -37,4 +37,10 @@
 
 -- COMMAND ----------
 
+UPDATE default.sqlite_customer c
+SET c.Company = 'xxxxxxxxxxxx'
+WHERE c.Company IS NULL
 
+-- COMMAND ----------
+
+SELECT * from default.sqlite_customer

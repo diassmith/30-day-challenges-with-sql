@@ -30,4 +30,21 @@
 
 -- COMMAND ----------
 
-
+SELECT
+a.CustomerId,
+a.FirstName, 
+a.LastName, 
+a.Country,
+a.TotaL
+FROM(
+SELECT c.CustomerId,
+c.FirstName, 
+c.LastName, 
+c.Country,
+i.Total,
+ROW_NUMBER() OVER(Partition by i.CustomerId  ORDER BY i.Total desc) rowNumber
+from default.sqlite_customer c
+LEFT JOIN default.sqlite_invoice i
+ON c.CustomerID = i.CustomerID
+where c.Country = 'Brazil'
+) a WHERE a.rowNumber = 1 

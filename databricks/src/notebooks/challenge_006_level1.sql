@@ -33,4 +33,4 @@
 
 -- COMMAND ----------
 
-
+SELECT LastName, substring_index(BirthDate,'-',1) as year, year(now()) as currentyear, (year(now())-substring_index(BirthDate,'-',1)) as idade from default.sqlite_Employee
