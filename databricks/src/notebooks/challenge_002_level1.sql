@@ -30,4 +30,9 @@
 
 -- COMMAND ----------
 
+SELECT FirstName from default.sqlite_customer where FirstName like "A%e"
 
+-- COMMAND ----------
+
+
+SELECT FirstName from default.sqlite_customer where SUBSTR(FirstName,1,1)='A' AND SUBSTR(FirstName,3,1)='e'

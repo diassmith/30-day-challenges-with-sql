@@ -29,4 +29,4 @@
 
 -- COMMAND ----------
 
-
+SELECT City, Count(City) from default.sqlite_customer Group BY City order by count(City) desc
