@@ -27,4 +27,5 @@
 
 -- COMMAND ----------
 
-
+SELECT CustomerId, Address, State, Country, replace(PostalCode,'-','') as Postal_code from default.sqlite_customer 
+where length( replace(PostalCode,'-','')) = 8 and PostalCode NOT LIKE '% %'

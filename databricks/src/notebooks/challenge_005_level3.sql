@@ -35,4 +35,5 @@
 
 -- COMMAND ----------
 
+SELECT CustomerId, concat(FirstName,' ',lower(LastName)) as nome, lower(Address) as endereco, Concat(City,'-',State) as cidade, upper(Country) AS pais, cast(replace(replace(PostalCode,'-',''),' ','') AS INT) as cep, replace(replace(replace(replace(replace(Phone,'+',''),' ',''),'(',''),')',''),'-','') as telefone, Email as email  from default.sqlite_customer where Country = 'Brazil' AND PostalCode <> '0'
 
