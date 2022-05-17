@@ -28,4 +28,8 @@
 
 -- COMMAND ----------
 
-
+SELECT Name, 
+length(Name) countCharacter 
+from default.sqlite_track t
+where length(Name) > 100
+order by countCharacter desc

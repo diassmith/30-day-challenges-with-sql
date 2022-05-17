@@ -37,4 +37,9 @@
 
 -- COMMAND ----------
 
+Create VIEW vTabela AS
+SELECT AlbumId, Title, ArtistId from default.sqlite_album
 
+-- COMMAND ----------
+
+Select * from vTabela
